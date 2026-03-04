@@ -1,0 +1,37 @@
+<div class="container py-5">
+  <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+    <div class="bg-success p-4 text-white text-center">
+      <h2><i class="bi bi-calculator"></i> Smart Trip Planner</h2>
+      <p>Estimate your Kerala vacation budget instantly</p>
+    </div>
+    
+    <div class="card-body p-4 bg-light">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Number of Days</label>
+          <input type="number" class="form-control form-control-lg" [(ngModel)]="days" (input)="calculateBudget()" min="1">
+        </div>
+        
+        <div class="col-md-6">
+          <label class="form-label fw-bold">Number of Travelers</label>
+          <input type="number" class="form-control form-control-lg" [(ngModel)]="travelers" (input)="calculateBudget()" min="1">
+        </div>
+
+        <div class="col-12">
+          <label class="form-label fw-bold">Accommodation Type</label>
+          <select class="form-select form-select-lg" [(ngModel)]="hotelType" (change)="calculateBudget()">
+            <option [value]="1500">Budget (Homestays/Hostels - ₹1,500/night)</option>
+            <option [value]="4000">Standard (3-Star Hotels - ₹4,000/night)</option>
+            <option [value]="12000">Luxury (Resorts/Houseboats - ₹12,000/night)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="mt-5 p-4 bg-white border rounded-3 text-center shadow-sm">
+        <h4 class="text-muted mb-1">Estimated Total Budget</h4>
+        <h1 class="text-success display-4 fw-bold">₹{{totalBudget | number}}</h1>
+        <small class="text-muted">*Includes stay, local travel, and basic food estimates.</small>
+      </div>
+    </div>
+  </div>
+</div>

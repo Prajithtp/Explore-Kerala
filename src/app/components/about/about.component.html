@@ -1,0 +1,74 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-success">Why Choose Kerala?</h1>
+    <p class="lead">Exploring the magic of God's Own Country</p>
+  </div>
+
+  <div class="row g-4 mt-2">
+    <div class="col-md-4 text-center">
+      <div class="p-4 bg-white shadow-sm rounded-4 h-100">
+        <i class="bi bi-tree text-success display-3"></i>
+        <h3 class="mt-3">Nature & Wildlife</h3>
+        <p class="text-muted">From the misty hills of Munnar to the dense forests of Wayanad, experience nature at its best.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <div class="p-4 bg-white shadow-sm rounded-4 h-100">
+        <i class="bi bi-music-note-beamed text-success display-3"></i>
+        <h3 class="mt-3">Vibrant Culture</h3>
+        <p class="text-muted">Discover the ancient art forms of Kathakali and the traditional boat races of Kuttanad.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 text-center">
+      <div class="p-4 bg-white shadow-sm rounded-4 h-100">
+        <i class="bi bi-water text-success display-3"></i>
+        <h3 class="mt-3">Backwaters</h3>
+        <p class="text-muted">Relax on a traditional houseboat cruising through the peaceful lagoons of Alappuzha.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5 p-5 bg-success text-white rounded-4 text-center shadow">
+    <h2>Our Mission</h2>
+    <p class="fs-5 mt-3">"Explore Kerala" is designed to provide a seamless travel planning experience for tourists worldwide, showcasing the beauty and heritage of our land.</p>
+  </div>
+</div>
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8">
+    <div class="card shadow-sm border-0 rounded-4">
+      <div class="card-body p-5">
+        <h2 class="text-success text-center mb-4">Contact Us</h2>
+        
+        <div *ngIf="submitted" class="alert alert-success text-center">
+          Thank you! We will get back to you soon.
+        </div>
+
+        <form (ngSubmit)="submitForm()" #contactForm="ngForm" *ngIf="!submitted">
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="contact.name" required #name="ngModel">
+            <div class="text-danger small" *ngIf="name.invalid && name.touched">Name is required.</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="contact.email" required email #email="ngModel">
+            <div class="text-danger small" *ngIf="email.invalid && email.touched">Please enter a valid email.</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" name="message" rows="4" [(ngModel)]="contact.message" required #msg="ngModel"></textarea>
+            <div class="text-danger small" *ngIf="msg.invalid && msg.touched">Message cannot be empty.</div>
+          </div>
+
+          <button type="submit" class="btn btn-success w-100 py-2 shadow-sm" [disabled]="contactForm.invalid">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
